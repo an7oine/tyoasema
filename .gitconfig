@@ -1,0 +1,12 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Antti Hautaniemi
+	email = antti.hautaniemi@me.com
+[push]
+	followTags = true
+[pull]
+	rebase = true
+
+[diff "plist"]
+  textconv = plutil -convert xml1 -o -
