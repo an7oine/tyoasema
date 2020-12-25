@@ -12,6 +12,9 @@ HYPHEN_INSENSITIVE="true"
 # Älä tulkitse versionhallinnan ulkopuolisia tiedostoja muutoksina.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# Älä tarkista täydennystiedostojen omistajuuksia ja oikeuksia.
+ZSH_DISABLE_COMPFIX=true
+
 # Ks. Mikrobitti 9/2020
 ZSH_THEME="dracula"
 
