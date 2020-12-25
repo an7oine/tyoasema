@@ -4,3 +4,9 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+[submodule ".pyenv/plugins/pyenv-virtualenvwrapper"]
+	path = .pyenv/plugins/pyenv-virtualenvwrapper
+	url = https://github.com/pyenv/pyenv-virtualenvwrapper.git
+[submodule ".pyenv/plugins/pyenv-virtualenv"]
+	path = .pyenv/plugins/pyenv-virtualenv
+	url = https://github.com/pyenv/pyenv-virtualenv.git
