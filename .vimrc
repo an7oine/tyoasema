@@ -151,8 +151,9 @@ highlight ValeValilyonti ctermbg=red guibg=red
 autocmd Syntax * syn match ValeValilyonti / /
 
 
-" Siirrytään Vim-ikkunoiden ja Tmux-paneelien välillä Ctrl-HJKL-näppäimillä.
-" Ks. https://www.codeography.com/2013/06/19/navigating-vim-and-tmux-splits
+" Siirrytään Vim-ikkunoiden ja Tmux-paneelien välillä
+" Ctrl-välilyönti + HJKL-näppäimillä.
+" Vrt. https://www.codeography.com/2013/06/19/navigating-vim-and-tmux-splits
 if exists('$TMUX')
   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
     let previous_winnr = winnr()
@@ -167,13 +168,8 @@ if exists('$TMUX')
   let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
   let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
 
-  nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
-  nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
-  nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
-  nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
-else
-  map <C-h> <C-w>h
-  map <C-j> <C-w>j
-  map <C-k> <C-w>k
-  map <C-l> <C-w>l
+  nnoremap <C-w>h :call TmuxOrSplitSwitch('h', 'L')<cr>
+  nnoremap <C-w>j :call TmuxOrSplitSwitch('j', 'D')<cr>
+  nnoremap <C-w>k :call TmuxOrSplitSwitch('k', 'U')<cr>
+  nnoremap <C-w>l :call TmuxOrSplitSwitch('l', 'R')<cr>
 endif
