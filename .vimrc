@@ -6,6 +6,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'majutsushi/tagbar', { 'for': 'python' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
