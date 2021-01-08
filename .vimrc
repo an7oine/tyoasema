@@ -1,12 +1,11 @@
 " Liitännäiset
 call plug#begin()
 Plug 'neomake/neomake'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'majutsushi/tagbar', { 'for': 'python' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
@@ -17,6 +16,10 @@ Plug 'sukima/xmledit'
 Plug 'posva/vim-vue'
 Plug 'Chiel92/vim-autoformat'
 Plug 'AndrewRadev/linediff.vim'
+
+" Käytöstä poistetut.
+" Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 " Syntaksin mukainen korostus.
@@ -55,7 +58,11 @@ colorscheme holokai
 set modeline
 
 " Näytetään tilarivi aina. Normaalisti se näkyy vain kun on monta ikkunaa auki
-:set laststatus=2
+set laststatus=2
+
+" Ei näytä lisäys-, valinta- tms. Vim-toimintatilaa.
+" Airline-liitännäinen näyttää tämän tilarivillä.
+set noshowmode
 
 " Näytetään tilarivissä kursorin sijaintitiedot
 set ruler
