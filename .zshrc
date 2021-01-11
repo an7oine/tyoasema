@@ -68,6 +68,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # Näennäisympäristöt.
+export VIRTUALENVWRAPPER_PYTHON=$HOME/.pyenv/shims/python
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/git
 eval "$(pyenv virtualenv-init -)"
