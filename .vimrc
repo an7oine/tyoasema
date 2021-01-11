@@ -189,6 +189,11 @@ if exists('$TMUX')
   let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
   let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
 
+  inoremap <C-w>h <Esc>:call TmuxOrSplitSwitch('h', 'L')<cr>
+  inoremap <C-w>j <Esc>:call TmuxOrSplitSwitch('j', 'D')<cr>
+  inoremap <C-w>k <Esc>:call TmuxOrSplitSwitch('k', 'U')<cr>
+  inoremap <C-w>l <Esc>:call TmuxOrSplitSwitch('l', 'R')<cr>
+
   nnoremap <C-w>h :call TmuxOrSplitSwitch('h', 'L')<cr>
   nnoremap <C-w>j :call TmuxOrSplitSwitch('j', 'D')<cr>
   nnoremap <C-w>k :call TmuxOrSplitSwitch('k', 'U')<cr>
