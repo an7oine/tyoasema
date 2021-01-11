@@ -64,7 +64,14 @@ set laststatus=2
 " Airline-liitännäinen näyttää tämän tilarivillä.
 set noshowmode
 
-" Näytetään tilarivissä kursorin sijaintitiedot
+" Kursorin väri: valkea lisäystilassa, vihreä muuten.
+" Palautetaan oletus poistuttaessa.
+let &t_SI = "\<Esc>]12;#ffffff\x7"
+let &t_EI = "\<Esc>]12;#5fffaf\x7"
+silent !echo -ne "\033]12;\#5fffaf\007"
+autocmd VimLeave * silent !echo -ne "\033]112\007"
+
+" Näytetään tilarivillä kursorin sijaintitiedot
 set ruler
 
 " ====== Tilarivin tyyliasetukset ======
