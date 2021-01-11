@@ -88,11 +88,17 @@ call neomake#configure#automake('nw', 250)
 " Avataan virhelista automaattisesti
 let g:neomake_open_list = 2
 
-" vim-qf asetukset
+
+" Airline-liitännäinen.
+let g:airline#extensions#tabline#enabled = 1
+
+
+" Vim-qf-liitännäinen.
 " Korjaa ongelman, joka tulee neomaken kanssa kun kahdessa ikkunassa on
 " quickfix lista ja toinen niistä suljetaan
 " https://github.com/neomake/neomake/issues/842
 let g:qf_loclist_window_bottom=0
+
 
 " Liiku kirjainkoolla/alaviivoilla eroteltujen osien välillä Optio-näppäimellä.
 let g:wordmotion_mappings = {

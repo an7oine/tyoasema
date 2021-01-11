@@ -16,7 +16,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 ZSH_DISABLE_COMPFIX=true
 
 # Ks. Mikrobitti 9/2020
-ZSH_THEME="dracula"
+ZSH_THEME="airline"
 
 # Historian pituus.
 SAVEHIST=5000
