@@ -1,10 +1,12 @@
+
 # Polku, pääte ja kieli.
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export TERM=xterm-256color
 export LANG=fi_FI.UTF-8
 
-# Oh-My-Zsh-asennuspolku.
+# Oh-My-Zsh-asennuspolku ja tyylimäärittely.
 export ZSH="${HOME}/.oh-my-zsh"
+ZSH_THEME="airline"
 
 # Samastetaan - ja _ komentojen täydennyksen yhteydessä.
 HYPHEN_INSENSITIVE="true"
@@ -14,9 +16,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Älä tarkista täydennystiedostojen omistajuuksia ja oikeuksia.
 ZSH_DISABLE_COMPFIX=true
-
-# Ks. Mikrobitti 9/2020
-ZSH_THEME="airline"
 
 # Historian pituus.
 SAVEHIST=5000
@@ -29,6 +28,7 @@ export KEYTIMEOUT=1
 
 # Liitännäiset.
 plugins=(git brew vi-mode extract colored-man-pages django)
+plugins+=(zsh-autosuggestions zsh-syntax-highlighting)
 plugins+=(etsi html_aihiot koodi luo_ctags rmpyc smtpd status)
 
 source $ZSH/oh-my-zsh.sh
