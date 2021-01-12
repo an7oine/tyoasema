@@ -7,9 +7,9 @@
 [submodule ".pyenv/plugins/pyenv-virtualenv"]
 	path = .pyenv/plugins/pyenv-virtualenv
 	url = https://github.com/pyenv/pyenv-virtualenv.git
-[submodule "/Users/antti/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-	path = /Users/antti/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+[submodule ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "/Users/antti/.oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-	path = /Users/antti/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+[submodule ".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+	path = .oh-my-zsh/custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
