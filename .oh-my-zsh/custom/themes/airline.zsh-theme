@@ -1,7 +1,7 @@
 # -*- mode: sh; -*-
 
-PROMPT='%F{250}%K{234}%n@%m%f%k %F{85}%K{234}%1~%f%k %# '
-RPROMPT='%F{85}%K{234}[%*]%f%k'
+PROMPT='%F{250}%n@%m%f %F{85}%1~%f %# '
+RPROMPT='%F{85}[%*]%f'
 
 # Näytä vi-tilaa vastaava kursorin väri.
 function zle-keymap-select zle-line-init {
