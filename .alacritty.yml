@@ -1,0 +1,5 @@
+window:
+  startup_mode: SimpleFullscreen
+
+alt_send_esc: false
+live_config_reload: true
