@@ -5,10 +5,11 @@ RPROMPT='%F{85}[%*]%f'
 
 # Näytä vi-tilaa vastaava kursorin väri.
 function zle-keymap-select zle-line-init {
-  # Xterm-väri 85: #5fffaf
   if [ $KEYMAP = vicmd ]; then
+    # Normaalitila: Xterm-väri 85 = #5fffaf.
     echo -ne "\033]12;#5fffaf\007"
   else
+    # Lisäystila: valkoinen.
     echo -ne "\033]12;#ffffff\007"
   fi
 
@@ -16,9 +17,9 @@ function zle-keymap-select zle-line-init {
   zle -R
 }
 
-# Palauta normaalitilan kursori, kun rivi on lähetetty.
+# Palauta lisäystilan kursori, kun rivi on lähetetty.
 function zle-line-finish {
-  echo -ne "\033]12;#5fffaf\007"
+  echo -ne "\033]12;#ffffff\007"
 }
 
 zle -N zle-line-init
