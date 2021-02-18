@@ -17,6 +17,9 @@ Plug 'posva/vim-vue'
 Plug 'Chiel92/vim-autoformat'
 Plug 'AndrewRadev/linediff.vim'
 
+" Tmux-navigate-liitännäinen.
+Plug 'sunaku/tmux-navigate'
+
 " Käytöstä poistetut.
 " Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'dracula/vim', { 'as': 'dracula' }
