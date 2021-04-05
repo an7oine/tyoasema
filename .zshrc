@@ -22,6 +22,8 @@ SAVEHIST=5000
 HISTSIZE=2000
 HISTFILE=~/.zsh_history
 
+alias vi=/usr/local/bin/vim
+
 # Käytetään Vi-tilaa komentorivillä.
 bindkey -v
 export KEYTIMEOUT=1
@@ -72,4 +74,4 @@ export VIRTUALENVWRAPPER_PYTHON=$HOME/.pyenv/shims/python
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/git
 eval "$(pyenv virtualenv-init -)"
-pyenv virtualenvwrapper
+pyenv virtualenvwrapper_lazy
