@@ -29,7 +29,7 @@ bindkey -v
 export KEYTIMEOUT=1
 
 # Liitännäiset.
-plugins=(git brew vi-mode extract colored-man-pages django)
+plugins=(git brew vi-mode extract colored-man-pages)
 plugins+=(zsh-autosuggestions zsh-syntax-highlighting)
 plugins+=(etsi html_aihiot koodi luo_ctags rmpyc smtpd status)
 
