@@ -4,7 +4,6 @@ Plug 'neomake/neomake'
 Plug 'vim-airline/vim-airline'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
-Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim'
 Plug 'majutsushi/tagbar', { 'for': 'python' }
 Plug 'ntpeters/vim-better-whitespace'
@@ -16,11 +15,16 @@ Plug 'sukima/xmledit'
 Plug 'posva/vim-vue'
 Plug 'Chiel92/vim-autoformat'
 Plug 'AndrewRadev/linediff.vim'
+Plug 'powerman/vim-plugin-AnsiEsc'
 
 " Tmux-navigate-liitännäinen.
 Plug 'sunaku/tmux-navigate'
 
+" Sähköpostiohjelma.
+Plug 'soywod/iris.vim'
+
 " Käytöstä poistetut.
+" Plug 'plasticboy/vim-markdown'
 " Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
@@ -69,10 +73,19 @@ set noshowmode
 
 " Kursorin väri: valkea lisäystilassa, vihreä muuten.
 " Palautetaan oletus poistuttaessa.
-let &t_SI = "\<Esc>]12;#ffffff\x7"
-let &t_EI = "\<Esc>]12;#5fffaf\x7"
-silent !echo -ne "\033]12;\#5fffaf\007"
-autocmd VimLeave * silent !echo -ne "\033]112\007"
+if exists('$TMUX')
+  let &t_SI = "\<Esc>]12;#ffffff\x7"
+  let &t_EI = "\<Esc>]12;#5fffaf\x7"
+  " let &t_SI = "\033Ptmux;\033\033]12;#ffffff\007\033\\"
+  " let &t_EI = "\033Ptmux;\033\033]12;#5fffaf\007\033\\"
+  " silent !echo -ne "\<Esc>Ptmux;\<Esc>\<Esc>]12;\#5fffaf\x7\<Esc>\\"
+  " autocmd VimLeave * silent !echo -ne "\<Esc>Ptmux;\<Esc>\<Esc>]112\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]12;#ffffff\x7"
+  let &t_EI = "\<Esc>]12;#5fffaf\x7"
+  " silent !echo -ne "\033]12;\#5fffaf\007"
+  " autocmd VimLeave * silent !echo -ne "\033]112\007"
+endif
 
 " Näytetään tilarivillä kursorin sijaintitiedot
 set ruler
@@ -97,6 +110,7 @@ set statusline+=%=%(%l,%c%V\ %=\ %P%)
 call neomake#configure#automake('nw', 250)
 " Avataan virhelista automaattisesti
 let g:neomake_open_list = 2
+let g:neomake_python_enable_makers = ['pylint']
 
 
 " Airline-liitännäinen.
@@ -169,6 +183,10 @@ autocmd FileType python nnoremap ı odef __init__(self, *args, **kwargs):<CR>sup
 " Lisää python-koodilohkon loppukommentti näppäinyhdistelmää <Alt-O> käyttäen.
 autocmd FileType python nnoremap œ ma0j?\S<CR>^:s/  #/###/e<CR>hh"ay0:s/###/  #/e<CR>?^<C-R>a\w<CR>"ayy'a"apI  # <Esc>$x:s/(.*)//ge<CR>
 " Huom. vastaavasti ^[o PC-ympäristössä.
+
+" Lisää ajoitettu pinotuloste näppäinyhdistelmää <Alt-F> käyttäen.
+autocmd FileType python nnoremap ƒ o__import__('faulthandler').dump_traceback_later(timeout=)<Esc>i
+" Huom. vastaavasti ^[f PC-ympäristössä.
 
 " Korosta virheelliset välilyönnit punaisella.
 highlight ValeValilyonti ctermbg=red guibg=red
