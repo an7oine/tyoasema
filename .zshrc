@@ -4,6 +4,9 @@ export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export TERM=xterm-256color
 export LANG=fi_FI.UTF-8
 
+# Lisää omat komentosarjat: ~/sh.
+export PATH=$HOME/sh:$PATH
+
 # Oh-My-Zsh-asennuspolku ja tyylimäärittely.
 export ZSH="${HOME}/.oh-my-zsh"
 ZSH_THEME="airline"
@@ -22,7 +25,7 @@ SAVEHIST=5000
 HISTSIZE=2000
 HISTFILE=~/.zsh_history
 
-alias vi=/usr/local/bin/vim
+alias vi=vim
 
 # Käytetään Vi-tilaa komentorivillä.
 bindkey -v
@@ -78,3 +81,15 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/git
 eval "$(pyenv virtualenv-init -)"
 pyenv virtualenvwrapper_lazy
+
+
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home
+export PATH=$PATH:~/Library/Android/sdk/tools
+export PATH=$PATH:~/Library/Android/sdk/tools/bin
+export PATH=$PATH:~/Library/Android/sdk/platform-tools
+
+# ARM-pohjainen Mac OS / Homebrew: lisää polut asennettujen kirjastojen hakuun.
+if [ "$( uname -p )" = "arm" ]; then
+  export CPATH=/opt/homebrew/include
+  export LIBRARY_PATH=/opt/homebrew/lib
+fi
