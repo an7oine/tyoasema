@@ -6,6 +6,7 @@
   defaultBranch = master
 [push]
   followTags = true
+	autoSetupRemote = true
 [pull]
   rebase = true
 

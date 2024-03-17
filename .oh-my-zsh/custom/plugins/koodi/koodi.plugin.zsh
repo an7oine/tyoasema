@@ -11,6 +11,7 @@ function koodi() {
   } | while read paketti; do
     find "${paketti}" \
     -not -path \*.eggs/\* \
+    -not -path \*.tox/\* \
     -not -name \*neomake\* \
     "(" -name \*.py -or -name \*.html -or -name \*.js -or -name \*.css ")" \
     "${@}"

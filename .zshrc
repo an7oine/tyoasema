@@ -1,7 +1,6 @@
 
 # Polku, pääte ja kieli.
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
-export TERM=xterm-256color
 export LANG=fi_FI.UTF-8
 
 # Lisää omat komentosarjat: ~/sh.
@@ -26,6 +25,7 @@ HISTSIZE=2000
 HISTFILE=~/.zsh_history
 
 alias vi=vim
+alias icat='kitten icat --scale-up "${@}"'
 
 # Käytetään Vi-tilaa komentorivillä.
 bindkey -v
