@@ -20,8 +20,8 @@ Plug 'powerman/vim-plugin-AnsiEsc'
 " Tmux-navigate-liitännäinen.
 Plug 'sunaku/tmux-navigate'
 
-" Sähköpostiohjelma.
-Plug 'soywod/iris.vim'
+" Koodin tarkistus.
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
 
 " Käytöstä poistetut.
 " Plug 'plasticboy/vim-markdown'
@@ -175,6 +175,38 @@ set clipboard=unnamed
 
 " Salli laajempi muokkaus askelpalauttimella lisäystilassa.
 set backspace=indent,eol,start
+
+
+" COC.nvim.
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
+
+" Merkintäsarake (COC) jatkuvasti näkyvissä.
+set signcolumn=yes
+
+" Ehdotetun koodin (COC) täydennys: sarkain, vaihto+sarkain, rivinvaihto.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Dokumentaation (COC) näyttö näppäimellä K.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  endif
+endfunction
+
+
+" Python-kohtaiset valmiit koodinpätkät.
 
 " Lisää python-luokkaan __init__-metodi näppäinyhdistelmää <Alt-I> käyttäen.
 autocmd FileType python nnoremap ı odef __init__(self, *args, **kwargs):<CR>super().__init__(*args, **kwargs)<CR># def __init__<Esc>O

@@ -1,3 +1,22 @@
 function rmpyc() {
-  find . -name \*.pyc -delete
+  {
+    # Vanhat .egg-link -tyyppiset asennukset.
+    find "$( python -c 'print(__import__("sysconfig").get_paths()["purelib"])' )" \
+      -name \*.egg-link -exec head -n1 '{}' \;
+
+    # PEP 660 -yhteensopivat asennukset.
+    find "$( python -c 'print(__import__("sysconfig").get_paths()["purelib"])' )" \
+      -name direct_url.json -exec jq -r .url '{}' \; | sed 's_^file://__'
+
+  } | while read paketti; do
+    find "${paketti}" \
+    -not -path \*.eggs/\* \
+    -not -path \*.tox/\* \
+    -not -name \*tuotanto/\* \
+    -not -name \*neomake\* \
+    -not -name \*/build/\* \
+    -name \*.pyc \
+    -delete \
+    "${@}"
+  done
 }

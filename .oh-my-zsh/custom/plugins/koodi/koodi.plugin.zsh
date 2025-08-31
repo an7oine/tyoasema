@@ -9,11 +9,11 @@ function koodi() {
       -name direct_url.json -exec jq -r .url '{}' \; | sed 's_^file://__'
 
   } | while read paketti; do
-    find "${paketti}" \
+    find -L "${paketti}" \
     -not -path \*.eggs/\* \
     -not -path \*.tox/\* \
     -not -name \*neomake\* \
-    "(" -name \*.py -or -name \*.html -or -name \*.js -or -name \*.css ")" \
+    "(" -name \*.py -or -name \*.html -or -name \*.js -or -name \*.css -or -name pyproject.toml ")" \
     "${@}"
   done
 }
